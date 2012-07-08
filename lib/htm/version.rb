@@ -4,5 +4,5 @@ module HTM
   PATCH = 1
   BUILD = nil
   
-  VERSION = [MAJOR, MINOR, PATCH, BUILD].compact.join('.')
+  VERSION = [MAJOR, MINOR, PATCH, BUILD].compact.join('.').freeze
 end
