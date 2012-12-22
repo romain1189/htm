@@ -13,7 +13,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec)/})
   gem.name          = "htm"
   gem.require_paths = ["lib"]
-  gem.version       = HTM::VERSION
+  gem.version       = HTM::VERSION.dup
 
   gem.add_dependency('celluloid')
 end
