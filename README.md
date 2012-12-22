@@ -16,6 +16,11 @@ TODO
 
 TODO
 
+## Suggested Reading
+
+* Jeff Hawkins, Sandra Blakeslee. *On intelligence*. Times Books, 2004. ISBN-10: 0805074562
+* Jeff Hawkins, Subutai Ahmad, Donna Dubinsky. [Hierarchical Temporal Memory including HTM Cortical Learning Algorithms](http://www.numenta.com/htm-overview/education/HTM_CorticalLearningAlgorithms.pdf). Numenta, 2011. version 0.2.1
+
 ## Contributing
 
 1. Fork it
