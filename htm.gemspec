@@ -16,4 +16,7 @@ Gem::Specification.new do |gem|
   gem.version       = HTM::VERSION.dup
 
   gem.add_dependency('celluloid')
+
+  gem.add_development_dependency('minitest')
+  gem.add_development_dependency('minitest-colorer')
 end
