@@ -1,11 +1,12 @@
 *.gem
 *.rbc
+.rbx
 .bundle
 .config
 .yardoc
 Gemfile.lock
 InstalledFiles
-_yardoc
+.yardoc
 coverage
 doc/
 lib/bundler/man
