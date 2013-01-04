@@ -54,7 +54,7 @@ module HTM
     # The source input index in a 1d array based on {#x} and {#y} indexes.
     # offset is computed as row-major order.
     def offset
-      @x * @region.input_height + @y
+      @y * @region.input_height + @x
     end
   end
 end
