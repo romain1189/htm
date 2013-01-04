@@ -66,38 +66,30 @@ class TestSynapse < MiniTest::Unit::TestCase
     refute @synapse.was_connected?
   end
 
-  def test_active_only_if_connected
-    @synapse.permanence = 0.1
-
-    refute @synapse.active?(:active)
-    refute @synapse.active?(:learning)
-  end
-
-  def test_was_active_only_if_was_connected
-    refute @synapse.was_active?(:active)
-    refute @synapse.was_active?(:learning)
-  end
-
   def test_active_only_for_active_and_learning_states
     @synapse.permanence = 0.9
 
     assert @synapse.active?(:active)
+    @mock.expect(:active?, true)
     assert @synapse.active?(:learning)
+    @mock.expect(:active?, true)
     refute @synapse.active?(:invalid_state)
   end
 
   def test_tick_should_assign_was_connected_to_connected
     connected = @synapse.connected?
-    @synapse.tick!
+    @synapse.before_tick!
     assert_equal connected, @synapse.was_connected?
   end
 
   def test_was_active_only_for_active_and_learning_states
     @synapse.permanence = 0.9
-    @synapse.tick!
+    @synapse.before_tick!
 
     assert @synapse.was_active?(:active)
+    @mock.expect(:was_active?, true)
     assert @synapse.was_active?(:learning)
+    @mock.expect(:was_active?, true)
     refute @synapse.was_active?(:invalid_state)
   end
 end

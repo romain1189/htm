@@ -7,22 +7,21 @@ module HTM
     # threshold
     PERMANENCE_THRESHOLD = 0.2
 
-    INITIAL_PERMANENCE = 0.3
-
     # Amount by which a synapse permanence is incremented
     PERMANENCE_INCREMENT = 0.015
 
     # Amount by which a synapse permanence is decremented
     PERMANENCE_DECREMENT = 0.005
 
-    # How many synapses must fire on a segment for it to be even considered
-    # for learning
-    MIN_SYNAPSES_PER_SEGMENT_THRESHOLD = 1
+    # The initial permanence for a synapse
+    INITIAL_PERMANENCE = 0.3
 
     attr_accessor :permanence
+    attr_reader :input
 
     class << self
-      attr_accessor :threshold, :incrementation_value, :decrementation_value
+      attr_accessor :threshold, :incrementation_value, :decrementation_value,
+                    :initial_permanence
 
       def threshold=(value)
         @threshold = value if value.between?(0, 1)
@@ -35,23 +34,26 @@ module HTM
       def decrementation_value=(value)
         @decrementation_value = value if value.between?(0, 1)
       end
+
+      def initial_permanence=(value)
+        @initial_permanence = value if value.between?(0, 1)
+      end
     end
 
     @threshold = PERMANENCE_THRESHOLD
     @incrementation_value = PERMANENCE_INCREMENT
     @decrementation_value = PERMANENCE_DECREMENT
+    @initial_permanence = INITIAL_PERMANENCE
 
     #
-    # @param [Integer] x the column index in the source input
-    # @param [Integer] y the row index in the source input
-    # @param [Region] region the region
+    # @param [InputCell, Cell]
     # @param [Numeric] permanence the initial permanence of the synapse (should
     #   be between 0 and 1)
-    def initialize(input, permanence = INITIAL_PERMANENCE)
+    def initialize(input, permanence = Synapse.initial_permanence)
       if permanence.between?(0, 1)
         @permanence = permanence
       else
-        @permanence = INITIAL_PERMANENCE
+        @permanence = Synapse.initial_permanence
       end
 
       @input = input
@@ -59,10 +61,11 @@ module HTM
       @was_connected = false
     end
 
-    # Advance synapse state to next time step
+    # Gives a change to the synapse to update his state before a new input is
+    # given to the region
     #
-    # @todo check if {#connected?} caching is necessary
-    def tick!
+    # @return [void]
+    def before_tick!
       @was_connected = connected?
     end
 
@@ -85,13 +88,11 @@ module HTM
 
     # This method returns <b>true</b> if the synapse is active due to the given
     # state at current timestep.
-    # @note to be considered active, the synapse has to be connected
+    # @note to be considered active, the synapse has not to be connected
     #
     # @param [Symbol] state either <b>:active</b> or <b>:learning</b>
     # @return [Boolean] <b>true</b>
     def active?(state)
-      return false unless connected?
-
       case state
       when :active then @input.active?
       when :learning then @input.learning? && @input.active?
@@ -101,14 +102,12 @@ module HTM
 
     # This method returns <b>true</b> if the synapse is active due to the given
     # state at previous timestep.
-    # @note to be considered active, the synapse has to be connected
+    # @note to be considered active, the synapse has not to be connected
     #
     # @see #active?
     # @param (see #active?)
     # @return (see #active?)
     def was_active?(state)
-      return false unless was_connected?
-
       case state
       when :active then @input.was_active?
       when :learning then @input.was_learning? && @input.was_active?
@@ -155,5 +154,28 @@ module HTM
       end
     end
 
+    # Returns the row of the input source if the synapse is attached to a
+    # proximal dendrite segment, always 0 otherwise
+    #
+    # @return [Integer]
+    def input_x
+      if @input.respond_to?(:x)
+        @input.x
+      else
+        0
+      end
+    end
+
+    # Returns the column of the input source if the synapse is attached to a
+    # proximal dendrite segment, always 0 otherwise
+    #
+    # @return [Integer]
+    def input_y
+      if @input.respond_to?(:y)
+        @input.y
+      else
+        0
+      end
+    end
   end
 end
