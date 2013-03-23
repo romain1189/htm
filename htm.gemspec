@@ -15,8 +15,10 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = HTM::VERSION.dup
 
-  gem.add_dependency('celluloid')
+  gem.add_dependency('celluloid', '~> 0.13.0')
+  gem.add_dependency('dcell', '~> 0.13.0')
 
+  gem.add_development_dependency('rake')
   gem.add_development_dependency('minitest')
-  gem.add_development_dependency('minitest-colorer')
+  gem.add_development_dependency('benchmark_suite')
 end
