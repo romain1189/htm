@@ -5,7 +5,7 @@ module HTM
   @logger = Logger.new(STDOUT)
 
   module Logging
-    module_function
+    module_function :debug, :info, :warn, :error
 
     # Send a debug message
     def debug(string)
