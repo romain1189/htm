@@ -21,6 +21,10 @@ module HTM
 
     alias_method :sequence?, :sequence
 
+    @activation_threshold = ACTIVATION_THRESHOLD
+    @min_threshold = MIN_THRESHOLD
+    @new_syn_count = NEW_SYNAPSE_COUNT
+
     class << self
       attr_accessor :activation_threshold, :min_threshold, :new_synapse_count
 
@@ -32,10 +36,6 @@ module HTM
         @min_threshold = [value, @activation_threshold].min
       end
     end
-
-    @activation_threshold = ACTIVATION_THRESHOLD
-    @minimum_threshold = MIN_THRESHOLD
-    @new_syn_count = NEW_SYNAPSE_COUNT
 
     # Data structure holding three pieces of information required to update a
     # given segment:
