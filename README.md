@@ -1,5 +1,8 @@
 # HTM - Hierarchical Temporal Memory cortical learning algorithms Ruby implementation
 
+[![Dependency Status](https://gemnasium.com/romain1189/htm.png)](https://gemnasium.com/romain1189/htm)
+[![Build Status](https://secure.travis-ci.org/romain1189/htm.png?branch=master)](http://travis-ci.org/romain1189/htm)
+
 [Numenta](http://www.numenta.com/)'s Hierarchical Temporal Memory (HTM) is a machine learning technology that aims to capture the structural and algorithmic properties of the neocortex.
 
 This project is an unofficial attempt to implement those algorithms. The code is based on Numenta's [paper](http://www.numenta.com/htm-overview/education/HTM_CorticalLearningAlgorithms.pdf) version 0.2.1
