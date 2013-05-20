@@ -10,11 +10,33 @@ HTM networks are modeled on the neocortex, the seat of human intelligence. They 
 
 ## Installation
 
-TODO
+Add this line to your application's Gemfile:
+
+    gem 'htm'
+
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install htm
+
+Inside of your Ruby program do:
+
+    require 'htm'
+
+...to pull it in as a dependency.
+
+## Documentation
+
+The following API documentation is available :
+
+* [YARD API documentation](http://www.rubydoc.info/github/romain1189/htm/master/frames)
 
 ## Usage
 
-TODO
+See the examples folder
 
 ## Suggested Reading
 
