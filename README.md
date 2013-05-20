@@ -2,6 +2,7 @@
 
 [![Dependency Status](https://gemnasium.com/romain1189/htm.png)](https://gemnasium.com/romain1189/htm)
 [![Build Status](https://secure.travis-ci.org/romain1189/htm.png?branch=master)](http://travis-ci.org/romain1189/htm)
+[![Code Climate](https://codeclimate.com/github/romain1189/htm.png)](https://codeclimate.com/github/romain1189/htm)
 
 [Numenta](http://www.numenta.com/)'s Hierarchical Temporal Memory (HTM) is a machine learning technology that aims to capture the structural and algorithmic properties of the neocortex.
 
