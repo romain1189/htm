@@ -1,5 +1,4 @@
 require 'minitest/autorun'
-require 'minitest/colorer'
 require 'minitest/mock'
 
 require 'htm/input_cell'

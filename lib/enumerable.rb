@@ -7,7 +7,7 @@ module Enumerable
 
   def peach(&block)
     futures = map { |elem| Celluloid::Future.new(elem, &block) }
-    futures.each { |future| future.value }
+    futures.map { |future| future.value }
     self
   end
 end

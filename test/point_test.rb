@@ -1,5 +1,4 @@
 require 'minitest/autorun'
-require 'minitest/colorer'
 
 require 'htm'
 
