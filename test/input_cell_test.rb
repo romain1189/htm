@@ -1,3 +1,4 @@
+require 'celluloid/autostart'
 require 'minitest/autorun'
 require 'minitest/mock'
 
@@ -5,7 +6,7 @@ require 'htm/input_cell'
 
 include HTM
 
-class TestInputCell < MiniTest::Unit::TestCase
+class TestInputCell < MiniTest::Test
   def setup
     @mock = MiniTest::Mock.new
 
