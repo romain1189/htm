@@ -1,3 +1,4 @@
+require 'celluloid/autostart'
 require 'minitest/autorun'
 require 'minitest/mock'
 
@@ -5,7 +6,7 @@ require 'htm/synapse'
 
 include HTM
 
-class TestSynapse < MiniTest::Unit::TestCase
+class TestSynapse < MiniTest::Test
   def setup
     @mock = MiniTest::Mock.new
 

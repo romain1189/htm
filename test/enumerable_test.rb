@@ -1,9 +1,10 @@
+require 'celluloid/autostart'
 require 'minitest/autorun'
 
 require 'celluloid'
 require 'enumerable'
 
-class TestEnumerable < MiniTest::Unit::TestCase
+class TestEnumerable < MiniTest::Test
   def setup
     @ary = (1..25).to_a
   end

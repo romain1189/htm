@@ -1,9 +1,10 @@
+require 'celluloid/autostart'
 require 'minitest/autorun'
 require 'htm/cell'
 
 include HTM
 
-class TestCell < MiniTest::Unit::TestCase
+class TestCell < MiniTest::Test
   def setup
     @cell = Cell.new
   end
