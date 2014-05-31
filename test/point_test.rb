@@ -4,7 +4,7 @@ require 'htm'
 
 include HTM::Geometry
 
-class TestPoint < MiniTest::Test
+class TestPoint < MiniTest::Unit::TestCase
   def setup
    @a = Point.new(0, 0)
    @b = Point.new(4, 4)

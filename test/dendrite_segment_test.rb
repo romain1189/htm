@@ -6,7 +6,7 @@ require 'htm/dendrite_segment'
 
 include HTM
 
-class TestDendriteSegment < MiniTest::Test
+class TestDendriteSegment < MiniTest::Unit::TestCase
   def setup
     @segment = DendriteSegment.new
   end

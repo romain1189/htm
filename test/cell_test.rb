@@ -4,7 +4,7 @@ require 'htm/cell'
 
 include HTM
 
-class TestCell < MiniTest::Test
+class TestCell < MiniTest::Unit::TestCase
   def setup
     @cell = Cell.new
   end
