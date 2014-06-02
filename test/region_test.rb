@@ -5,7 +5,7 @@ require 'htm'
 
 include HTM
 
-class TestRegion < MiniTest::Test
+class TestRegion < MiniTest::Unit::TestCase
   def setup
    @region = Region.new(column_width: 4, column_height: 4, input_width: 32,
                         input_height: 32)

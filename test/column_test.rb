@@ -5,6 +5,6 @@ require 'htm'
 
 include HTM
 
-class TestColumn < MiniTest::Test
+class TestColumn < MiniTest::Unit::TestCase
 
 end

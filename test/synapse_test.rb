@@ -6,7 +6,7 @@ require 'htm/synapse'
 
 include HTM
 
-class TestSynapse < MiniTest::Test
+class TestSynapse < MiniTest::Unit::TestCase
   def setup
     @mock = MiniTest::Mock.new
 

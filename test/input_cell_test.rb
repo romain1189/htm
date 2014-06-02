@@ -6,7 +6,7 @@ require 'htm/input_cell'
 
 include HTM
 
-class TestInputCell < MiniTest::Test
+class TestInputCell < MiniTest::Unit::TestCase
   def setup
     @mock = MiniTest::Mock.new
 
