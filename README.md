@@ -1,4 +1,6 @@
-# HTM - Hierarchical Temporal Memory cortical learning algorithms Ruby implementation
+# [**Outdated**] HTM - Hierarchical Temporal Memory cortical learning algorithms Ruby implementation
+
+**This project is outdated and uncompleted**
 
 [![Dependency Status](https://gemnasium.com/romain1189/htm.png)](https://gemnasium.com/romain1189/htm)
 [![Build Status](https://secure.travis-ci.org/romain1189/htm.png?branch=master)](http://travis-ci.org/romain1189/htm)
